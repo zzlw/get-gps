@@ -1,0 +1,60 @@
+{
+  "Metadata": {
+    "title": "GPS 经纬度",
+    "description": "在带有 GPS 的设备上读取当前纬度和经度。没有 GPS 时无法获取。",
+    "applicationName": "GPS 经纬度"
+  },
+  "HomePage": {
+    "skip": "跳到主内容",
+    "brand": "测站",
+    "privacy": "本机 GPS · 不上传",
+    "eyebrow": "FIELD FIX",
+    "title": "读取当前经纬度",
+    "lead": "只认卫星定位。精度要在 {meters, number} 米以内，网络估算和没有 GPS 的设备都不会给出坐标。",
+    "stepPermission": "点击后由浏览器询问定位权限",
+    "stepOutdoors": "室外空旷处更容易锁住卫星",
+    "stepLocal": "坐标留在这台设备上，可以复制",
+    "footer": "需要系统定位权限。室内或高楼之间可能暂时锁不住卫星。"
+  },
+  "GpsPanel": {
+    "heading": "当前位置",
+    "checking": "正在检查这台设备的定位能力…",
+    "locating": "正在读取卫星定位。系统里已有的卫星定位会马上显示，室外空旷处通常几秒。",
+    "noGps": "无法获取，当前设备不存在 GPS 功能",
+    "unsupported": "当前浏览器没有提供定位接口。",
+    "inaccurate": "没有得到 {meters, number} 米以内的 GPS 定位。",
+    "unavailableTitle": "无法获取定位",
+    "denied": "浏览器拒绝了位置权限。允许本站使用位置信息后，再重新获取。",
+    "insecure": "定位只能在 HTTPS 或本机 localhost 下使用。请换用安全连接后再打开本页。",
+    "latitude": "纬度",
+    "longitude": "经度",
+    "accuracy": "精度",
+    "altitude": "海拔",
+    "fixTime": "定位时间",
+    "idle": "准备读取。没有 GPS 的电脑通常给不出 {meters, number} 米以内的精度。",
+    "retry": "重新获取",
+    "locate": "获取经纬度",
+    "copied": "已复制",
+    "copy": "复制坐标",
+    "copyFailed": "复制失败，请长按坐标手动复制。",
+    "copiedLive": "坐标已复制",
+    "copyFailedLive": "复制失败",
+    "badgeLocked": "已锁定",
+    "badgeSearching": "搜寻中",
+    "badgeIdle": "待命",
+    "badgeMissing": "未获取"
+  },
+  "ErrorPage": {
+    "title": "页面出错了",
+    "description": "可以重试一次。",
+    "retry": "重试"
+  },
+  "NotFound": {
+    "title": "页面不存在",
+    "description": "这个地址没有对应的页面。",
+    "home": "返回首页"
+  },
+  "LocaleSwitcher": {
+    "label": "语言"
+  }
+}

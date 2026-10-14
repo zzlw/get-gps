@@ -1,0 +1,60 @@
+{
+  "Metadata": {
+    "title": "GPS coordinates",
+    "description": "Read the current latitude and longitude on a device with GPS. Without GPS, coordinates cannot be obtained.",
+    "applicationName": "GPS coordinates"
+  },
+  "HomePage": {
+    "skip": "Skip to main content",
+    "brand": "Station",
+    "privacy": "On-device GPS · nothing is uploaded",
+    "eyebrow": "FIELD FIX",
+    "title": "Read the current coordinates",
+    "lead": "Satellite positioning only. Accuracy must be within {meters, number} meters. Network estimates and devices without GPS will not return coordinates.",
+    "stepPermission": "The browser asks for location permission after you tap",
+    "stepOutdoors": "Open sky makes it easier to lock onto satellites",
+    "stepLocal": "Coordinates stay on this device and can be copied",
+    "footer": "System location permission is required. Indoors or between tall buildings, satellites may not lock right away."
+  },
+  "GpsPanel": {
+    "heading": "Current position",
+    "checking": "Checking whether this device can provide a location…",
+    "locating": "Reading the satellite position. A recent satellite fix appears immediately. Outdoors this usually takes a few seconds.",
+    "noGps": "Unavailable. This device has no GPS.",
+    "unsupported": "This browser does not provide a location API.",
+    "inaccurate": "No GPS fix within {meters, number} meters was received.",
+    "unavailableTitle": "Location unavailable",
+    "denied": "The browser denied location permission. Allow this site to use your location, then try again.",
+    "insecure": "Location is only available over HTTPS or on localhost. Open this page over a secure connection.",
+    "latitude": "Latitude",
+    "longitude": "Longitude",
+    "accuracy": "Accuracy",
+    "altitude": "Altitude",
+    "fixTime": "Fix time",
+    "idle": "Ready. Computers without GPS usually cannot reach an accuracy of {meters, number} meters.",
+    "retry": "Try again",
+    "locate": "Get coordinates",
+    "copied": "Copied",
+    "copy": "Copy coordinates",
+    "copyFailed": "Copy failed. Long-press the coordinates to copy them manually.",
+    "copiedLive": "Coordinates copied",
+    "copyFailedLive": "Copy failed",
+    "badgeLocked": "Locked",
+    "badgeSearching": "Searching",
+    "badgeIdle": "Standby",
+    "badgeMissing": "Unavailable"
+  },
+  "ErrorPage": {
+    "title": "Something went wrong",
+    "description": "You can try again.",
+    "retry": "Try again"
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "description": "This address does not match a page.",
+    "home": "Back to home"
+  },
+  "LocaleSwitcher": {
+    "label": "Language"
+  }
+}

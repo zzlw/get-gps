@@ -1,0 +1,60 @@
+{
+  "Metadata": {
+    "title": "GPS座標",
+    "description": "GPS付きの端末で、現在の緯度と経度を読み取ります。GPSがない場合は取得できません。",
+    "applicationName": "GPS座標"
+  },
+  "HomePage": {
+    "skip": "メインコンテンツへ移動",
+    "brand": "測点",
+    "privacy": "端末内のGPS · 送信しません",
+    "eyebrow": "FIELD FIX",
+    "title": "現在の緯度・経度を読み取る",
+    "lead": "衛星測位だけを使います。精度は{meters, number}メートル以内である必要があります。ネットワーク推定やGPSのない端末では座標を返しません。",
+    "stepPermission": "タップすると、ブラウザが位置情報の許可を求めます",
+    "stepOutdoors": "開けた屋外のほうが衛星を捕捉しやすくなります",
+    "stepLocal": "座標はこの端末に残り、コピーできます",
+    "footer": "システムの位置情報の許可が必要です。屋内や高い建物の間では、衛星をすぐには捕捉できないことがあります。"
+  },
+  "GpsPanel": {
+    "heading": "現在位置",
+    "checking": "この端末の位置情報機能を確認しています…",
+    "locating": "衛星測位を読み取っています。システムに新しい衛星測位があればすぐ表示されます。屋外では通常数秒です。",
+    "noGps": "取得できません。この端末にはGPS機能がありません",
+    "unsupported": "このブラウザは位置情報のAPIを提供していません。",
+    "inaccurate": "{meters, number}メートル以内のGPS測位を取得できませんでした。",
+    "unavailableTitle": "位置情報を取得できません",
+    "denied": "ブラウザが位置情報の許可を拒否しました。このサイトの位置情報を許可してから、もう一度取得してください。",
+    "insecure": "位置情報はHTTPSまたはlocalhostでのみ使えます。安全な接続でこのページを開いてください。",
+    "latitude": "緯度",
+    "longitude": "経度",
+    "accuracy": "精度",
+    "altitude": "高度",
+    "fixTime": "測位時刻",
+    "idle": "読み取り準備ができました。GPSのないパソコンでは、通常{meters, number}メートル以内の精度は出ません。",
+    "retry": "再取得",
+    "locate": "緯度・経度を取得",
+    "copied": "コピーしました",
+    "copy": "座標をコピー",
+    "copyFailed": "コピーに失敗しました。座標を長押しして手動でコピーしてください。",
+    "copiedLive": "座標をコピーしました",
+    "copyFailedLive": "コピーに失敗しました",
+    "badgeLocked": "捕捉済み",
+    "badgeSearching": "検索中",
+    "badgeIdle": "待機",
+    "badgeMissing": "未取得"
+  },
+  "ErrorPage": {
+    "title": "ページでエラーが発生しました",
+    "description": "もう一度試せます。",
+    "retry": "再試行"
+  },
+  "NotFound": {
+    "title": "ページが見つかりません",
+    "description": "このアドレスに対応するページはありません。",
+    "home": "ホームに戻る"
+  },
+  "LocaleSwitcher": {
+    "label": "言語"
+  }
+}

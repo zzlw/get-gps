@@ -1,0 +1,60 @@
+{
+  "Metadata": {
+    "title": "Coordonnées GPS",
+    "description": "Lit la latitude et la longitude actuelles sur un appareil équipé d’un GPS. Sans GPS, les coordonnées sont indisponibles.",
+    "applicationName": "Coordonnées GPS"
+  },
+  "HomePage": {
+    "skip": "Aller au contenu principal",
+    "brand": "Station",
+    "privacy": "GPS de l’appareil · rien n’est envoyé",
+    "eyebrow": "FIELD FIX",
+    "title": "Lire les coordonnées actuelles",
+    "lead": "Uniquement le positionnement par satellite. La précision doit être d’au plus {meters, number} mètres. Les estimations réseau et les appareils sans GPS ne renvoient pas de coordonnées.",
+    "stepPermission": "Le navigateur demande l’autorisation de localisation après un appui",
+    "stepOutdoors": "À ciel ouvert, les satellites se verrouillent plus facilement",
+    "stepLocal": "Les coordonnées restent sur cet appareil et peuvent être copiées",
+    "footer": "L’autorisation de localisation du système est requise. À l’intérieur ou entre de grands immeubles, les satellites peuvent ne pas se verrouiller tout de suite."
+  },
+  "GpsPanel": {
+    "heading": "Position actuelle",
+    "checking": "Vérification de la localisation sur cet appareil…",
+    "locating": "Lecture de la position satellite. Une position satellite déjà connue s’affiche tout de suite. En extérieur, cela prend en général quelques secondes.",
+    "noGps": "Indisponible. Cet appareil n’a pas de GPS.",
+    "unsupported": "Ce navigateur ne fournit pas d’API de localisation.",
+    "inaccurate": "Aucune position GPS à moins de {meters, number} mètres.",
+    "unavailableTitle": "Localisation indisponible",
+    "denied": "Le navigateur a refusé l’autorisation de localisation. Autorisez ce site à utiliser votre position, puis réessayez.",
+    "insecure": "La localisation ne fonctionne qu’en HTTPS ou sur localhost. Ouvrez cette page via une connexion sécurisée.",
+    "latitude": "Latitude",
+    "longitude": "Longitude",
+    "accuracy": "Précision",
+    "altitude": "Altitude",
+    "fixTime": "Heure du relevé",
+    "idle": "Prêt. Un ordinateur sans GPS n’atteint en général pas une précision de {meters, number} mètres.",
+    "retry": "Relire",
+    "locate": "Obtenir les coordonnées",
+    "copied": "Copié",
+    "copy": "Copier les coordonnées",
+    "copyFailed": "Échec de la copie. Appuyez longuement sur les coordonnées pour les copier à la main.",
+    "copiedLive": "Coordonnées copiées",
+    "copyFailedLive": "Échec de la copie",
+    "badgeLocked": "Verrouillé",
+    "badgeSearching": "Recherche",
+    "badgeIdle": "En attente",
+    "badgeMissing": "Indisponible"
+  },
+  "ErrorPage": {
+    "title": "Un problème est survenu",
+    "description": "Vous pouvez réessayer.",
+    "retry": "Réessayer"
+  },
+  "NotFound": {
+    "title": "Page introuvable",
+    "description": "Cette adresse ne correspond à aucune page.",
+    "home": "Retour à l’accueil"
+  },
+  "LocaleSwitcher": {
+    "label": "Langue"
+  }
+}

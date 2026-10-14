@@ -1,14 +1,16 @@
 import type { MetadataRoute } from "next";
+import messages from "../../messages/zh.json";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "GPS 经纬度",
+    name: messages.Metadata.applicationName,
     short_name: "GPS",
-    description: "在带有 GPS 的设备上读取当前纬度和经度。",
+    description: messages.Metadata.description,
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",
     theme_color: "#ffffff",
-    lang: "zh-CN",
+    lang: "zh-Hans",
+    dir: "ltr",
   };
 }

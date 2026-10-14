@@ -7,6 +7,7 @@ import {
   MapPinOff,
   Satellite,
 } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
@@ -22,10 +23,9 @@ import {
   formatFixTime,
   formatLatitude,
   formatLongitude,
-  GPS_FIX_TIMEOUT_MS,
+  formatMeters,
   GPS_MAX_ACCURACY_METERS,
   type GpsFailure,
-  NO_GPS_MESSAGE,
   readDeviceGpsCapability,
   watchGpsFix,
 } from "@/lib/gps";
@@ -33,6 +33,8 @@ import {
 type PanelStatus = "checking" | "idle" | "locating" | GpsFailure | "success";
 
 export function GpsPanel() {
+  const t = useTranslations("GpsPanel");
+  const locale = useLocale();
   const [status, setStatus] = useState<PanelStatus>("checking");
   const [position, setPosition] = useState<GeolocationPosition | null>(null);
   const [copied, setCopied] = useState(false);
@@ -109,12 +111,12 @@ export function GpsPanel() {
       className="shadow-lg ring-foreground/15"
     >
       <CardHeader className="flex flex-row items-center justify-between gap-3">
-        <p className="font-medium">当前位置</p>
+        <p className="font-medium">{t("heading")}</p>
         <StatusBadge status={status} />
       </CardHeader>
       <CardContent className="flex flex-col gap-5">
         {status === "checking" ? (
-          <p className="text-muted-foreground">正在检查这台设备的定位能力…</p>
+          <p className="text-muted-foreground">{t("checking")}</p>
         ) : null}
 
         {status === "locating" ? (
@@ -125,8 +127,7 @@ export function GpsPanel() {
               <LoaderCircle className="size-5 text-primary motion-safe:animate-spin" />
             </div>
             <p className="text-muted-foreground text-sm leading-6">
-              正在等待 GPS 定位。请留在本页，室外空旷处通常更快，最长约{" "}
-              {GPS_FIX_TIMEOUT_MS / 1000} 秒。
+              {t("locating")}
             </p>
           </div>
         ) : null}
@@ -134,11 +135,11 @@ export function GpsPanel() {
         {showNoGps ? (
           <Alert variant="destructive">
             <MapPinOff />
-            <AlertTitle>{NO_GPS_MESSAGE}</AlertTitle>
+            <AlertTitle>{t("noGps")}</AlertTitle>
             <AlertDescription>
               {status === "unsupported"
-                ? "当前浏览器没有提供定位接口。"
-                : `没有得到 ${GPS_MAX_ACCURACY_METERS} 米以内的 GPS 定位。`}
+                ? t("unsupported")
+                : t("inaccurate", { meters: GPS_MAX_ACCURACY_METERS })}
             </AlertDescription>
           </Alert>
         ) : null}
@@ -146,56 +147,65 @@ export function GpsPanel() {
         {status === "denied" ? (
           <Alert variant="destructive">
             <MapPinOff />
-            <AlertTitle>无法获取定位</AlertTitle>
-            <AlertDescription>
-              浏览器拒绝了位置权限。允许本站使用位置信息后，再重新获取。
-            </AlertDescription>
+            <AlertTitle>{t("unavailableTitle")}</AlertTitle>
+            <AlertDescription>{t("denied")}</AlertDescription>
           </Alert>
         ) : null}
 
         {status === "insecure" ? (
           <Alert variant="destructive">
             <MapPinOff />
-            <AlertTitle>无法获取定位</AlertTitle>
-            <AlertDescription>
-              定位只能在 HTTPS 或本机 localhost
-              下使用。请换用安全连接后再打开本页。
-            </AlertDescription>
+            <AlertTitle>{t("unavailableTitle")}</AlertTitle>
+            <AlertDescription>{t("insecure")}</AlertDescription>
           </Alert>
         ) : null}
 
         {locked ? (
           <dl className="grid gap-3">
             <div className="rounded-xl bg-muted/80 px-4 py-3">
-              <dt className="text-muted-foreground text-xs">纬度</dt>
-              <dd className="font-mono text-[clamp(1.5rem,4vw,2rem)] tabular-nums leading-tight">
+              <dt className="text-muted-foreground text-xs">{t("latitude")}</dt>
+              <dd
+                dir="ltr"
+                className="font-mono text-[clamp(1.5rem,4vw,2rem)] tabular-nums leading-tight"
+              >
                 {formatLatitude(latitude)}
               </dd>
             </div>
             <div className="rounded-xl bg-muted/80 px-4 py-3">
-              <dt className="text-muted-foreground text-xs">经度</dt>
-              <dd className="font-mono text-[clamp(1.5rem,4vw,2rem)] tabular-nums leading-tight">
+              <dt className="text-muted-foreground text-xs">
+                {t("longitude")}
+              </dt>
+              <dd
+                dir="ltr"
+                className="font-mono text-[clamp(1.5rem,4vw,2rem)] tabular-nums leading-tight"
+              >
                 {formatLongitude(longitude)}
               </dd>
             </div>
             <div className="grid grid-cols-2 gap-3 text-sm">
               <div>
-                <dt className="text-muted-foreground text-xs">精度</dt>
+                <dt className="text-muted-foreground text-xs">
+                  {t("accuracy")}
+                </dt>
                 <dd className="font-medium tabular-nums">
-                  {Math.round(accuracy ?? 0)} 米
+                  {formatMeters(Math.round(accuracy ?? 0), locale)}
                 </dd>
               </div>
               <div>
-                <dt className="text-muted-foreground text-xs">海拔</dt>
+                <dt className="text-muted-foreground text-xs">
+                  {t("altitude")}
+                </dt>
                 <dd className="font-medium tabular-nums">
                   {altitude === null || altitude === undefined
                     ? "—"
-                    : `${Math.round(altitude)} 米`}
+                    : formatMeters(Math.round(altitude), locale)}
                 </dd>
               </div>
               <div className="col-span-2">
-                <dt className="text-muted-foreground text-xs">北京时间</dt>
-                <dd>{formatFixTime(position.timestamp)}</dd>
+                <dt className="text-muted-foreground text-xs">
+                  {t("fixTime")}
+                </dt>
+                <dd>{formatFixTime(position.timestamp, locale)}</dd>
               </div>
             </div>
           </dl>
@@ -204,8 +214,7 @@ export function GpsPanel() {
         {status === "idle" ? (
           <p className="flex items-start gap-2 text-muted-foreground text-sm leading-6">
             <Satellite className="mt-0.5 size-4 shrink-0 text-primary" />
-            准备读取。没有 GPS 的电脑通常给不出 {GPS_MAX_ACCURACY_METERS}{" "}
-            米以内的精度。
+            {t("idle", { meters: GPS_MAX_ACCURACY_METERS })}
           </p>
         ) : null}
       </CardContent>
@@ -218,8 +227,8 @@ export function GpsPanel() {
         >
           <LocateFixed data-icon="inline-start" />
           {status === "success" || status === "no-gps" || status === "denied"
-            ? "重新获取"
-            : "获取经纬度"}
+            ? t("retry")
+            : t("locate")}
         </Button>
         {locked ? (
           <Button
@@ -231,18 +240,16 @@ export function GpsPanel() {
             }}
           >
             {copied ? <Check data-icon="inline-start" /> : null}
-            {copied ? "已复制" : "复制坐标"}
+            {copied ? t("copied") : t("copy")}
           </Button>
         ) : null}
         {copyError ? (
-          <p className="text-destructive text-xs">
-            复制失败，请长按坐标手动复制。
-          </p>
+          <p className="text-destructive text-xs">{t("copyFailed")}</p>
         ) : null}
         <p className="sr-only" aria-live="polite">
-          {copied ? "坐标已复制" : ""}
-          {copyError ? "复制失败" : ""}
-          {showNoGps ? NO_GPS_MESSAGE : ""}
+          {copied ? t("copiedLive") : ""}
+          {copyError ? t("copyFailedLive") : ""}
+          {showNoGps ? t("noGps") : ""}
         </p>
       </CardFooter>
     </Card>
@@ -250,14 +257,19 @@ export function GpsPanel() {
 }
 
 function StatusBadge({ status }: { status: PanelStatus }) {
+  const t = useTranslations("GpsPanel");
   if (status === "success") {
-    return <Badge className="bg-accent text-accent-foreground">已锁定</Badge>;
+    return (
+      <Badge className="bg-accent text-accent-foreground">
+        {t("badgeLocked")}
+      </Badge>
+    );
   }
   if (status === "locating" || status === "checking") {
-    return <Badge variant="secondary">搜寻中</Badge>;
+    return <Badge variant="secondary">{t("badgeSearching")}</Badge>;
   }
   if (status === "idle") {
-    return <Badge variant="outline">待命</Badge>;
+    return <Badge variant="outline">{t("badgeIdle")}</Badge>;
   }
-  return <Badge variant="destructive">未获取</Badge>;
+  return <Badge variant="destructive">{t("badgeMissing")}</Badge>;
 }

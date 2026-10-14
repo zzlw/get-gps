@@ -1,0 +1,60 @@
+{
+  "Metadata": {
+    "title": "Coordenadas GPS",
+    "description": "Lee la latitud y la longitud actuales en un dispositivo con GPS. Sin GPS no se pueden obtener.",
+    "applicationName": "Coordenadas GPS"
+  },
+  "HomePage": {
+    "skip": "Saltar al contenido principal",
+    "brand": "Estación",
+    "privacy": "GPS del dispositivo · no se sube nada",
+    "eyebrow": "FIELD FIX",
+    "title": "Leer las coordenadas actuales",
+    "lead": "Solo posicionamiento por satélite. La precisión debe estar dentro de {meters, number} metros. Las estimaciones de red y los dispositivos sin GPS no devuelven coordenadas.",
+    "stepPermission": "El navegador pide permiso de ubicación al pulsar",
+    "stepOutdoors": "A cielo abierto es más fácil fijar los satélites",
+    "stepLocal": "Las coordenadas se quedan en este dispositivo y se pueden copiar",
+    "footer": "Hace falta el permiso de ubicación del sistema. En interiores o entre edificios altos, los satélites pueden tardar en fijarse."
+  },
+  "GpsPanel": {
+    "heading": "Posición actual",
+    "checking": "Comprobando la capacidad de ubicación de este dispositivo…",
+    "locating": "Leyendo la posición por satélite. Si el sistema ya tiene una fijación reciente, aparece al momento. Al aire libre suele tardar unos segundos.",
+    "noGps": "No disponible. Este dispositivo no tiene GPS.",
+    "unsupported": "Este navegador no ofrece una API de ubicación.",
+    "inaccurate": "No se obtuvo una fijación GPS dentro de {meters, number} metros.",
+    "unavailableTitle": "Ubicación no disponible",
+    "denied": "El navegador denegó el permiso de ubicación. Permite que este sitio use tu ubicación y vuelve a intentarlo.",
+    "insecure": "La ubicación solo funciona con HTTPS o en localhost. Abre esta página con una conexión segura.",
+    "latitude": "Latitud",
+    "longitude": "Longitud",
+    "accuracy": "Precisión",
+    "altitude": "Altitud",
+    "fixTime": "Hora de la fijación",
+    "idle": "Listo. Un ordenador sin GPS normalmente no alcanza una precisión de {meters, number} metros.",
+    "retry": "Volver a obtener",
+    "locate": "Obtener coordenadas",
+    "copied": "Copiado",
+    "copy": "Copiar coordenadas",
+    "copyFailed": "No se pudo copiar. Mantén pulsadas las coordenadas para copiarlas a mano.",
+    "copiedLive": "Coordenadas copiadas",
+    "copyFailedLive": "Error al copiar",
+    "badgeLocked": "Fijado",
+    "badgeSearching": "Buscando",
+    "badgeIdle": "En espera",
+    "badgeMissing": "Sin datos"
+  },
+  "ErrorPage": {
+    "title": "La página falló",
+    "description": "Puedes intentarlo de nuevo.",
+    "retry": "Reintentar"
+  },
+  "NotFound": {
+    "title": "La página no existe",
+    "description": "Esta dirección no corresponde a ninguna página.",
+    "home": "Volver al inicio"
+  },
+  "LocaleSwitcher": {
+    "label": "Idioma"
+  }
+}
