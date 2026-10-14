@@ -1,5 +1,6 @@
 "use client";
 
+import { Globe } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import {
   Select,
@@ -36,8 +37,9 @@ export function LocaleSwitcher() {
     >
       <SelectTrigger
         aria-label={t("label")}
-        className="h-8 gap-1 bg-background px-2.5 text-xs hover:bg-muted [&_svg]:size-3.5"
+        className="h-8 gap-1.5 bg-background px-2.5 text-xs hover:bg-muted [&_svg]:size-3.5"
       >
+        <Globe aria-hidden className="text-muted-foreground" />
         <SelectValue className="flex-none text-start" />
       </SelectTrigger>
       <SelectContent alignItemWithTrigger={false} align="end">
